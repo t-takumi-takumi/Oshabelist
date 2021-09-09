@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">Oshabelist</string>
-    <string name="action_settings">Settings</string>
+    <string name="next">Next</string>
+
+
+    <!-- TALK Theme  -->
+    <string name="talk_theme1">一番好きな三角コーナーのお題は？</string>
+    <string name="title_activity_theme_list">ThemeListActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
