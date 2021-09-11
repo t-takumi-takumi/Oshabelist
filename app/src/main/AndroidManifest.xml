@@ -3,6 +3,7 @@
     package="com.outside.oshabelist">
 
     <application
+        android:name=".core.OshabelistApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,11 +13,11 @@
         <activity
             android:name=".edit.ThemeListActivity"
             android:label="@string/title_activity_theme_list"
-            android:theme="@style/Theme.Oshabelist.NoActionBar"></activity>
+            android:theme="@style/Theme.Oshabelist.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Oshabelist.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.outside.oshabelist.databinding.ActivityMainBinding
 import com.outside.oshabelist.home.HomeFragment
 import com.outside.oshabelist.remoteconfig.RemoteConfigUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
