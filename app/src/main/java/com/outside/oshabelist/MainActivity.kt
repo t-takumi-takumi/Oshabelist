@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.outside.oshabelist.databinding.ActivityMainBinding
 import com.outside.oshabelist.home.HomeFragment
+import com.outside.oshabelist.remoteconfig.RemoteConfigUtils
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        RemoteConfigUtils.initRemoteConfig()
         supportFragmentManager.beginTransaction().add(R.id.content, HomeFragment.newInstance())
             .commit()
     }

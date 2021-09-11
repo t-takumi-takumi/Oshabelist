@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.outside.oshabelist.databinding.FragmentHomeBinding
 import com.outside.oshabelist.edit.ThemeListActivity
+import com.outside.oshabelist.remoteconfig.RemoteConfigKey
+import com.outside.oshabelist.remoteconfig.RemoteConfigUtils
 
 class HomeFragment : Fragment() {
 
@@ -24,6 +26,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.themeTitle.text = RemoteConfigUtils.getString(RemoteConfigKey.TALK_THEME_LIST)
+
         binding.gatyaButton.setOnClickListener {
             Toast.makeText(requireContext(), "comming soon!", Toast.LENGTH_SHORT).show()
         }

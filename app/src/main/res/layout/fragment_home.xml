@@ -7,14 +7,14 @@
     tools:context=".home.HomeFragment">
 
     <TextView
-        android:id="@+id/textview_first"
+        android:id="@+id/theme_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/talk_theme1"
         app:layout_constraintBottom_toTopOf="@id/gatya_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/talk_theme1" />
 
     <Button
         android:id="@+id/gatya_button"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
+        app:layout_constraintTop_toBottomOf="@id/theme_title" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/home_fab"
