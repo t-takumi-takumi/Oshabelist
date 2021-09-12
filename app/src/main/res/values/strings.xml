@@ -1,16 +1,13 @@
 <resources>
     <string name="app_name">Oshabelist</string>
-    <string name="next">Next</string>
-
-
-    <!-- TALK Theme  -->
-    <string name="talk_theme1">一番好きな三角コーナーのお題は？</string>
     <string name="title_activity_theme_list">ThemeListActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- common  -->
+    <string name="talk_theme_list_num">%1$d：</string>
+
+    <!-- Toolbar Title  -->
+    <string name="talk_theme_list">トークテーマ一覧</string>
+
+    <!-- Home  -->
+    <string name="next">Next</string>
 </resources>
