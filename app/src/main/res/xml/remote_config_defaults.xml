@@ -2,6 +2,32 @@
 <defaultMap>
     <entry>
         <key>talk_theme_list</key>
-        <value>fffff</value>
+        <value>[
+            {
+            "talkTheme":"aaa",
+            "id":"1"
+            },
+            {
+            "talkTheme":"bbb",
+            "id":"2"
+            },
+            {
+            "talkTheme":"ccc",
+            "id":"3"
+            },
+            {
+            "talkTheme":"ddd",
+            "id":"4"
+            },
+            {
+            "talkTheme":"eee",
+            "id":"5"
+            },
+            {
+            "talkTheme":"fff",
+            "id":"6"
+            }
+            ]
+        </value>
     </entry>
 </defaultMap>

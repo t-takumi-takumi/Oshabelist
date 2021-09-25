@@ -10,4 +10,7 @@
 
     <!-- Home  -->
     <string name="next">Next</string>
+
+    <!-- Edit  -->
+    <string name="neta_edit_hint">話のネタメモとしてご活用ください！</string>
 </resources>
