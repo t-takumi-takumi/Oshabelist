@@ -36,10 +36,13 @@ class ThemeListFragment : Fragment() {
         binding.recyclerView.adapter = ThemeListAdapter(themeListViewModel.themeList).apply {
             setOnItemClickListener(object : ThemeListAdapter.OnItemClickListener {
                 override fun onClick(view: View, talkThemeModel: TalkThemeModel) {
-                    parentFragmentManager.beginTransaction().add(
-                        R.id.content,
-                        NetaEditFragment.newInstance(talkThemeModel.id.toString())
-                    ).commit()
+                    parentFragmentManager.beginTransaction().run {
+                        addToBackStack(null)
+                        replace(
+                            R.id.content,
+                            NetaEditFragment.newInstance(talkThemeModel.id.toString())
+                        ).commit()
+                    }
                 }
             })
         }
