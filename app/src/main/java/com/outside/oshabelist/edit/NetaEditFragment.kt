@@ -2,6 +2,7 @@ package com.outside.oshabelist.edit
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.room.Room
@@ -9,8 +10,6 @@ import com.outside.oshabelist.R
 import com.outside.oshabelist.databinding.FragmentNetaEditBinding
 import com.outside.oshabelist.db.AppDatabase
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class NetaEditFragment : Fragment() {
@@ -29,6 +28,7 @@ class NetaEditFragment : Fragment() {
         netaEditViewModel.apply {
             netaId = arguments?.getString(BUNDLE_KEY_ID) ?: ""
             userDao = database.netaDao()
+            setSavedNeta()
         }
         _binding = FragmentNetaEditBinding.inflate(inflater, container, false).apply {
             viewModel = netaEditViewModel
@@ -44,16 +44,25 @@ class NetaEditFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.saveButton) {
-            var isSuccesssSave = false
-            GlobalScope.launch {
-                if (netaEditViewModel.savedNeta.value.isNullOrEmpty()) {
-                    isSuccesssSave =
-                        netaEditViewModel.insertNetaText(binding.editNetaText.text.toString())
-                } else {
-                    isSuccesssSave =
-                        netaEditViewModel.updateNetaText(binding.editNetaText.text.toString())
-                }
+            val isSuccessSave = if (netaEditViewModel.savedNeta.value.isNullOrEmpty()) {
+                netaEditViewModel.insertNetaText(binding.editNetaText.text.toString())
+            } else {
+                netaEditViewModel.updateNetaText(binding.editNetaText.text.toString())
             }
+            if (isSuccessSave) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.success_save),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.failure_save),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            parentFragmentManager.popBackStack()
             return true
         }
         return false
