@@ -13,4 +13,6 @@
 
     <!-- Edit  -->
     <string name="neta_edit_hint">話のネタメモとしてご活用ください！</string>
+    <string name="success_save">保存しました</string>
+    <string name="failure_save">保存に失敗しました</string>
 </resources>
