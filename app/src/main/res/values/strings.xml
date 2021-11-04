@@ -4,6 +4,8 @@
 
     <!-- common  -->
     <string name="talk_theme_list_num">%1$d：</string>
+    <string name="save">保存</string>
+    <string name="edit">編集</string>
 
     <!-- Toolbar Title  -->
     <string name="talk_theme_list">トークテーマ一覧</string>
