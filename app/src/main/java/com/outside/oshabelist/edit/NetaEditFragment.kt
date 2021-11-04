@@ -9,6 +9,7 @@ import androidx.room.Room
 import com.outside.oshabelist.R
 import com.outside.oshabelist.databinding.FragmentNetaEditBinding
 import com.outside.oshabelist.db.AppDatabase
+import com.outside.oshabelist.utils.AppUiUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,16 +24,22 @@ class NetaEditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(true)
-        val database =
-            Room.databaseBuilder(requireContext(), AppDatabase::class.java, "neta").build()
         netaEditViewModel.apply {
             netaId = arguments?.getString(BUNDLE_KEY_ID) ?: ""
-            userDao = database.netaDao()
+            netaDao =
+                Room.databaseBuilder(requireContext(), AppDatabase::class.java, "neta").build()
+                    .netaDao()
             setSavedNeta()
         }
         _binding = FragmentNetaEditBinding.inflate(inflater, container, false).apply {
             viewModel = netaEditViewModel
             lifecycleOwner = this@NetaEditFragment
+            if (netaEditViewModel.savedNeta.value.isNullOrEmpty()) {
+                editNetaText.requestFocus()
+                AppUiUtils.openInputMethodManager(editNetaText, 100)
+            } else {
+                editNetaText.clearFocus()
+            }
         }
         return binding.root
     }
@@ -67,6 +74,7 @@ class NetaEditFragment : Fragment() {
         }
         return false
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

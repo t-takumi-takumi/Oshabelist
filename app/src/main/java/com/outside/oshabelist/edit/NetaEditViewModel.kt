@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class NetaEditViewModel @Inject constructor() : ViewModel() {
     var netaId = ""
-    var userDao: NetaDao? = null
+    var netaDao: NetaDao? = null
 
     private val _savedNeta = MutableLiveData("")
     val savedNeta: LiveData<String>
@@ -22,13 +22,13 @@ class NetaEditViewModel @Inject constructor() : ViewModel() {
 
     fun setSavedNeta() {
         viewModelScope.launch(Dispatchers.IO) {
-            _savedNeta.postValue(userDao?.getNeta(netaId)?.neta)
+            _savedNeta.postValue(netaDao?.getNeta(netaId)?.neta)
         }
     }
 
     //返却値は保存成功可否
     fun insertNetaText(netaText: String): Boolean {
-        val dao = userDao ?: return false
+        val dao = netaDao ?: return false
         if (netaId.isEmpty()) return false
         viewModelScope.launch(Dispatchers.IO) {
             dao.insert(Neta(netaId, netaText))
@@ -38,7 +38,7 @@ class NetaEditViewModel @Inject constructor() : ViewModel() {
 
     //返却値は保存成功可否
     fun updateNetaText(netaText: String): Boolean {
-        val dao = userDao ?: return false
+        val dao = netaDao ?: return false
         if (netaId.isEmpty()) return false
         viewModelScope.launch(Dispatchers.IO) {
             dao.update(Neta(netaId, netaText))
