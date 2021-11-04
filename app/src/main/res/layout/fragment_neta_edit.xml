@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,26 +9,31 @@
             type="com.outside.oshabelist.edit.NetaEditViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:baselineAligned="false">
 
-        <EditText
-            android:id="@+id/edit_neta_text"
-            android:layout_width="match_parent"
+        <ScrollView
+            android:id="@+id/edit_scroll_view"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:autofillHints="@string/neta_edit_hint"
-            android:background="#00000000"
-            android:gravity="top"
-            android:hint="@string/neta_edit_hint"
-            android:inputType="text"
-            android:padding="4dp"
-            android:text="@{viewModel.savedNeta}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:scrollbars="none"
+            tools:ignore="UselessParent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/edit_neta_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/neta_edit_hint"
+                android:background="#00000000"
+                android:gravity="top"
+                android:hint="@string/neta_edit_hint"
+                android:inputType="textMultiLine|text"
+                android:padding="4dp"
+                android:text="@{viewModel.savedNeta}" />
+        </ScrollView>
+    </LinearLayout>
 </layout>

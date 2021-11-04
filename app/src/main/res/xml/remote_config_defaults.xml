@@ -4,28 +4,8 @@
         <key>talk_theme_list</key>
         <value>[
             {
-            "talkTheme":"aaa",
-            "id":"1"
-            },
-            {
-            "talkTheme":"bbb",
-            "id":"2"
-            },
-            {
-            "talkTheme":"ccc",
-            "id":"3"
-            },
-            {
-            "talkTheme":"ddd",
-            "id":"4"
-            },
-            {
-            "talkTheme":"eee",
-            "id":"5"
-            },
-            {
-            "talkTheme":"fff",
-            "id":"6"
+            "talkTheme":"トークテーマガチャ！\nNEXTボタンを押してお喋り始めよう",
+            "id":"0"
             }
             ]
         </value>
