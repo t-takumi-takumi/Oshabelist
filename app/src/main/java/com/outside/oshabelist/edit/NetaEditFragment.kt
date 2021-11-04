@@ -51,17 +51,22 @@ class NetaEditFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.saveButton) {
-            val isSuccessSave = if (netaEditViewModel.savedNeta.value.isNullOrEmpty()) {
-                netaEditViewModel.insertNetaText(binding.editNetaText.text.toString())
-            } else {
-                netaEditViewModel.updateNetaText(binding.editNetaText.text.toString())
-            }
+            val netaText = binding.editNetaText.text.toString()
+            val isSuccessSave =
+                if (netaEditViewModel.savedNeta.value.isNullOrEmpty() && netaText.isNotBlank()) {
+                    netaEditViewModel.insertNetaText(netaText)
+                } else if (!netaEditViewModel.savedNeta.value.isNullOrEmpty() && netaText.isNotBlank()) {
+                    netaEditViewModel.updateNetaText(netaText)
+                } else {
+                    false
+                }
             if (isSuccessSave) {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.success_save),
                     Toast.LENGTH_SHORT
                 ).show()
+                parentFragmentManager.popBackStack()
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -69,7 +74,6 @@ class NetaEditFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            parentFragmentManager.popBackStack()
             return true
         }
         return false
