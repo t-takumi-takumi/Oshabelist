@@ -18,13 +18,17 @@
             android:id="@+id/theme_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
             android:text="@{viewModel.talkTheme}"
             android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/gatya_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="一番好きな三角コーナーのお題は？" />
+            tools:text="一番好きな三角コーナーのお題は？なにがでるかななにがでるかななにがでるかななにがでるかななにがでるかな" />
 
         <Button
             android:id="@+id/gatya_button"
