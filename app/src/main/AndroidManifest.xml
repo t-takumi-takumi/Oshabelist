@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Oshabelist"
         tools:ignore="LockedOrientationActivity">
+        <!--  テスト用   -->
+        <!--        <meta-data-->
+        <!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
+        <!--            android:value="ca-app-pub-3940256099942544~3347511713"/>-->
+        <!--  本番用   -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8468780593584201~5942539976" />
+
         <activity
             android:name=".edit.ThemeListActivity"
             android:exported="false"
@@ -20,10 +29,10 @@
             android:theme="@style/Theme.Oshabelist.NoActionBar" />
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Oshabelist.NoActionBar"
-            android:exported="true">
+            android:theme="@style/Theme.Oshabelist.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

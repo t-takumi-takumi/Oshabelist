@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.gms.ads.AdRequest
 import com.outside.oshabelist.databinding.FragmentHomeBinding
 import com.outside.oshabelist.edit.ThemeListActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +27,7 @@ class HomeFragment : Fragment(), HomeNavigator {
             viewModel = homeViewModel
             lifecycleOwner = this@HomeFragment
         }
+        binding.adView.loadAd(AdRequest.Builder().build())
         homeViewModel.navigator = this
         return binding.root
     }
