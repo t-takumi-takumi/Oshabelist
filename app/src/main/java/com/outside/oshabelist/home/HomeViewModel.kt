@@ -9,13 +9,22 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val useCase: HomeUseCase) : ViewModel() {
     var navigator: HomeNavigator? = null
+    var themeListIndex = 1
+    var themeList = useCase.getShuffledTalkThemeList()
 
-    private val _talkTheme = MutableLiveData(useCase.getTalkThemeRandomly())
+    private val _talkTheme = MutableLiveData(themeList[0].talkTheme)
     val talkTheme: LiveData<String>
         get() = _talkTheme
 
     fun onClickNextButton() {
-        _talkTheme.value = useCase.getTalkThemeRandomly()
+        //トークテーマリスト全部使い切ったらリセット
+        if (themeListIndex >= themeList.size) {
+            themeListIndex = 0
+            _talkTheme.value = themeList[themeListIndex].talkTheme
+            return
+        }
+        _talkTheme.value = themeList[themeListIndex].talkTheme
+        themeListIndex++
     }
 
     fun onClickFab() {
